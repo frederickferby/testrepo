@@ -12,7 +12,7 @@ steps:
   settings:
     create_repository: true
     registry: 795250896452.dkr.ecr.us-east-1.amazonaws.com
-    repo: 795250896452.dkr.ecr.us-east-1.amazonaws.com/officeit/${DRONE_REPO_NAME}
+    repo: 795250896452.dkr.ecr.us-east-1.amazonaws.com/officeit/${testrepo}
     tags:
     - git-${DRONE_COMMIT_SHA:0:7}
     - latest
@@ -34,7 +34,7 @@ steps:
     namespace: officeit
     release: my-app
     tiller_ns: officeit
-    values: image.tag=git-${DRONE_COMMIT_SHA:0:7},image.repository=795250896452.dkr.ecr.us-east-1.amazonaws.com/officeit/${DRONE_REPO_NAME},ingress.enabled=true,ingress.hosts[0]=my-app.officeit.staging.corp.mongodb.com
+    values: image.tag=git-${DRONE_COMMIT_SHA:0:7},image.repository=795250896452.dkr.ecr.us-east-1.amazonaws.com/officeit/${testrepo},ingress.enabled=true,ingress.hosts[0]=my-app.officeit.staging.corp.mongodb.com
     api_server: https://api.staging.corp.mongodb.com
     kubernetes_token:
       from_secret: staging_kubernetes_token
